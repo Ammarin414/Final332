@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List (EC2+RDS+S3)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>To-Do List (EC2+RDS+S3)</h1>
+        <p>Built with S3 (Frontend), EC2 (Backend), and RDS (Database)</p>
+
+        <form id="todo-form">
+            <input type="text" id="todo-input" placeholder="What needs to be done?" autocomplete="off" required>
+            <button type="submit">Add</button>
+        </form>
+
+        <ul id="todo-list">
+            <!-- Todos will be loaded here by app.js -->
+        </ul>
+        
+        <div id="loading-indicator">Loading...</div>
+        <div id="error-message"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
