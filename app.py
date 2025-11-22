@@ -17,7 +17,8 @@ db_config = {
     'host': 'YOUR_RDS_ENDPOINT_HERE', # เช่น todo-database.xxxxx.us-east-1.rds.amazonaws.com
     'user': 'admin',                 # Master username ของคุณ
     'password': 'YOUR_RDS_PASSWORD_HERE',
-    'database': 'tododb'             # ชื่อ Database ที่คุณสร้าง (อาจต้องสร้างเองก่อน)
+    'database': 'tododb',             # ชื่อ Database ที่คุณสร้าง (อาจต้องสร้างเองก่อน)
+    'ssl_disabled': True
 }
 # ===============================================
 
@@ -43,6 +44,7 @@ def create_table_if_not_exists():
                 id VARCHAR(255) PRIMARY KEY,
                 text TEXT NOT NULL,
                 completed BOOLEAN DEFAULT FALSE
+                )CHARACTER SET utf8mb4 COOLATE utf8mb4_unicode_ci
             );
         """)
         conn.commit()
@@ -177,3 +179,4 @@ if __name__ == '__main__':
     create_table_if_not_exists()
     # รันเซิร์ฟเวอร์ ให้เข้าถึงได้จากภายนอก (0.0.0.0) ที่ Port 5000
     app.run(host='0.0.0.0', port=5000, debug=True)
+
