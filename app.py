@@ -44,7 +44,7 @@ def create_table_if_not_exists():
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 text VARCHAR(255) NOT NULL,
                 completed BOOLEAN DEFAULT FALSE
-                )CHARACTER SET utf8mb4 COOLATE utf8mb4_unicode_ci,
+                )CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
         """)
         conn.commit()
         print("Table 'todos' checked/created successfully.")
@@ -178,5 +178,6 @@ if __name__ == '__main__':
     create_table_if_not_exists()
     # รันเซิร์ฟเวอร์ ให้เข้าถึงได้จากภายนอก (0.0.0.0) ที่ Port 5000
     app.run(host='0.0.0.0', port=5000, debug=True)
+
 
 
